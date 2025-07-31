@@ -1,0 +1,126 @@
+/* LoginPage.css */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0d1b2a;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: #1b263b;
+  padding: 3rem 4rem;           /* more spacious padding for desktop */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 600px;                /* ⬅️ FORCE it to be desktop-wide */
+  color: white;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-img {
+  width: 60px;
+  height: 60px;
+}
+
+.logo-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-group label {
+  font-weight: bold;
+}
+
+.login-group input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #415a77;
+  color: white;
+  font-size: 1rem;
+}
+
+.login-group input:focus {
+  outline: 2px solid #778da9;
+}
+
+.login-button {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: #2563eb;
+}
+
+.profile-img-circle {
+  width: 120px;           /* medium size */
+  height: 120px;
+  border-radius: 50%;     /* makes it a circle */
+  object-fit: cover;
+  border: 3px solid #778da9;
+  margin: 0 auto;
+  display: block;
+}
+
+.profile-name-small {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem; /* binawasan ito */
+  color: #e0e0e0;
+}
+
+.profile-email-small {
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem; /* binawasan ito */
+  color: #a9bcd0;
+}
+

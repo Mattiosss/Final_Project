@@ -1,5 +1,3 @@
-// src/components/Table.jsx
-
 function Table({ children }) {
   return (
     <table
@@ -39,10 +37,8 @@ function TableCell({ children }) {
   return <td style={{ padding: "10px" }}>{children}</td>;
 }
 
-// ✅ Export all as named exports
 export { Table, TableHead, TableBody, TableRow, TableCell };
 
-// ✅ Optional: export Table as default too (if needed in ui.js)
 export default Table;
 
 

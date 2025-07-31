@@ -1,22 +1,55 @@
-import { useState } from 'react';
-import MemberForm from './components/MemberForm';
-import MemberTable from './components/MemberTable';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import LoginPage from './Pages/LoginPage';
+import SignupPage from './Pages/SignupPage';
+import HomePage from './Pages/HomePage';
+import ProfilePage from './Pages/ProfilePage';
+import MemberListPage from './Pages/MemberListPage'; // ✅ New import
 
 export default function App() {
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
-  const refreshMembers = () => setRefreshTrigger(prev => prev + 1);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+  }, [isLoggedIn]);
 
   return (
-    <div className="min-h-screen bg-[#0d1b2a] text-white flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl font-bold mb-6">Elite Coding Club</h1>
+    <Router>
+      <Routes>
+        {/* ✅ Home route */}
+        <Route
+          path="/"
+          element={
+            isLoggedIn ? (
+              <HomePage onLogout={() => setIsLoggedIn(false)} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
 
-      <div className="bg-[#1b263b] p-6 rounded-lg shadow-lg w-full max-w-md">
-        <MemberForm onMemberAdded={refreshMembers} />
-      </div>
+        {/* ✅ Member contributions page */}
+        <Route
+          path="/member"
+          element={
+            isLoggedIn ? <MemberListPage /> : <Navigate to="/login" />
+          }
+        />
 
-      <div className="mt-8 w-full max-w-4xl">
-        <MemberTable refreshTrigger={refreshTrigger} />
-      </div>
-    </div>
+        {/* ✅ Login route */}
+        <Route
+          path="/login"
+          element={<LoginPage onLogin={() => setIsLoggedIn(true)} />}
+        />
+
+        {/* ✅ Signup route */}
+        <Route path="/signup" element={<SignupPage />} />
+
+        {/* ✅ Profile route (if needed in future) */}
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
+    </Router>
   );
 }

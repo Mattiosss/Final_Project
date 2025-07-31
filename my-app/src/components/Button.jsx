@@ -1,6 +1,4 @@
-// src/components/Button.jsx
-
-function Button({ label = "Enter", onClick, type = "button", style = {} }) {
+function Button({ children, onClick, type = "button", style = {} }) {
   return (
     <button
       type={type}
@@ -12,13 +10,12 @@ function Button({ label = "Enter", onClick, type = "button", style = {} }) {
         border: "none",
         borderRadius: "4px",
         cursor: "pointer",
-        ...style, // allow custom override
+        ...style,
       }}
     >
-      {label}
+      {children}
     </button>
   );
 }
 
-// ✅ default export for use like: `import { Button } from './ui'`
 export default Button;

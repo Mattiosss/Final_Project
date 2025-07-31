@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../firebaseconfig';
-
 import {
   Table,
   TableHeader,
@@ -11,7 +10,7 @@ import {
   Button
 } from '../components/ui.js';
 
-export default function MemberTable({ refreshTrigger }) {
+export default function MemberTable({ refreshTrigger, onEdit }) {
   const [members, setMembers] = useState([]);
 
   const fetchMembers = async () => {
@@ -21,6 +20,9 @@ export default function MemberTable({ refreshTrigger }) {
   };
 
   const deleteMember = async id => {
+    const confirmed = window.confirm("Are you sure you want to delete this member?");
+    if (!confirmed) return;
+
     await deleteDoc(doc(db, 'members', id));
     fetchMembers();
   };
@@ -33,18 +35,19 @@ export default function MemberTable({ refreshTrigger }) {
     <Table>
       <TableHeader>
         <TableRow>
-          
+          <TableCell>Name</TableCell>
+          <TableCell>Amount</TableCell>
+          <TableCell>Action</TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>
         {members.map(member => (
           <TableRow key={member.id}>
             <TableCell>{member.name}</TableCell>
-            <TableCell>${member.totalPaid.toFixed(2)}</TableCell>
-            <TableCell>
-              <Button variant="destructive" onClick={() => deleteMember(member.id)}>
-                Delete
-              </Button>
+            <TableCell>₱{(member.totalPaid ?? 0).toFixed(2)}</TableCell>
+            <TableCell className="flex gap-2 flex-wrap">
+              <Button onClick={() => onEdit(member)}>Edit</Button>
+              <Button onClick={() => deleteMember(member.id)}>Delete</Button>
             </TableCell>
           </TableRow>
         ))}

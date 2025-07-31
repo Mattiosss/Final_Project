@@ -5,8 +5,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can replace this with your actual login logic
+    e.preventDefault();    
     console.log("Login submitted", { email, password });
   };
 

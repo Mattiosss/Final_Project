@@ -1,5 +1,3 @@
-// src/components/CardContent.jsx
-
 function CardContent({ children, style = {} }) {
   return (
     <div

@@ -1,5 +1,3 @@
-// src/components/Input.jsx
-
 function Input({ value, onChange, placeholder = "Enter text", type = "text", style = {} }) {
   return (
     <input

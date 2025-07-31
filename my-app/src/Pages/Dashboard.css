@@ -1,0 +1,198 @@
+/* ✅ Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: #0d1b2a;
+  color: white;
+  padding: 6rem 2rem 4rem; /* Enough space below fixed header */
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ✅ Profile info - fixed on upper-left */
+.profile-fixed {
+  position: fixed;
+  top: 6rem;
+  left: 2rem;
+  background-color: #1b263b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  z-index: 10;
+}
+
+.profile-fixed .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #778da9;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-fixed .profile-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.profile-fixed .profile-role,
+.profile-fixed .profile-email {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin: 0.1rem 0;
+}
+
+/* ✅ Sticky header with logo, title, and buttons */
+.dashboard-header-centered {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b1120;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  height: 40px;
+  width: 40px;
+}
+
+.logo-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+/* ✅ Header buttons */
+.dashboard-header-buttons {
+  display: flex;
+  gap: 1rem;
+  padding-right: 2rem; /* 🔧 Push buttons inward to avoid cutoff */
+}
+
+.logout-button,
+.profile-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.logout-button {
+  background-color: #dc2626;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #f87171;
+}
+
+.profile-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.profile-button:hover {
+  background-color: #3b82f6;
+}
+
+/* ✅ Main layout */
+.dashboard-main-content {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+
+/* ✅ Right content */
+.dashboard-right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+  margin-left: 250px;
+  margin-top: 2rem;
+}
+
+.dashboard-form-card {
+  background-color: #1b263b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.member-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.dashboard-table-card {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ✅ Contribution Tracker Styling */
+.contribution-tracker {
+  background-color: #1b263b;
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.contribution-tracker h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contribution-tracker table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contribution-tracker th,
+.contribution-tracker td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
